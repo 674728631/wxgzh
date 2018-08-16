@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liuzhen.wxgzh.dao.inter.MessageMapper">
+
+    <resultMap id="MessageMap" type="com.liuzhen.wxgzh.pojo.Message">
+        <result column="main_key" jdbcType="VARCHAR" property="mainKey"/>
+        <result column="message" jdbcType="VARCHAR" property="message"/>
+
+    </resultMap>
+
+    <select id="getAll" resultType="Map">
+        select * from message
+    </select>
+
+    <!-- 根据key查询-->
+    <select id="getByKey" resultType="Map">
+        select * from message where main_key like '%${KEY}%'
+    </select>
+
+
+</mapper>
